@@ -1,0 +1,92 @@
+#include <iostream>
+using namespace std;
+
+int sumar(int numerosuma1, int numerosuma2);
+int resta(int numeroresta1, int numeroresta2);
+int multi(int numeromulti1, int numeromulti2);
+int division(int numerodivision1, int numerodivision2);
+
+int main()
+{
+    int operacion = 0;
+    cout << "Calculadora simple" << endl;
+    cout << "Elige que operacion queres realizar:" << endl;
+    cout << "1. Sumar" << endl;
+    cout << "2. Resta" << endl;
+    cout << "3. Multiplicacion" << endl;
+    cout << "4. Division" << endl;
+    cout << "Ingrese el numero de la operacion: ";
+    cin >> operacion;
+    switch(operacion)
+    {
+        case 1:
+            int numero1,numero2,resultado;
+            cout << endl << "Ingresa el primer numero a sumar: ";
+            cin >> numero1;
+            cout << "Ingresa el segundo numero a sumar: ";
+            cin >> numero2;
+            resultado = sumar(numero1,numero2);
+            cout << "El resultado final de la suma es: " << resultado << endl;
+            break;
+            
+        case 2:
+            int resta1,resta2,resultado2;
+            cout << endl << "Ingresa el primer numero a restar: ";
+            cin >> resta1;
+            cout << "Ingresa el segundo numero a restar: ";
+            cin >> resta2;
+            resultado2 = resta(resta1,resta2);
+            cout << "El resultado final de la resta es: " << resultado2 << endl;
+            break;
+        
+        case 3:
+            int multi1,multi2,resultado3;
+            cout << endl << "Ingresa el primer numero a multiplicar: ";
+            cin >> multi1;
+            cout << "Ingresa el segundo numero a sumar: ";
+            cin >> multi2;
+            resultado3 = multi(multi1,multi2);
+            cout << "El resultado final de la multiplicacion es: " << resultado3 << endl;
+            break;
+            
+        case 4:
+            int division1,division2,resultado4;
+            cout << endl << "Ingresa el primer numero a dividir: ";
+            cin >> division1;
+            cout << "Ingresa el segundo numero a dividir: ";
+            cin >> division2;
+            resultado4 = division(division1,division2);
+            cout << "El resultado final de la division es: " << resultado4 << endl;
+            break;
+        
+        default:
+            cout << endl << "Porfavor elija alguna de las opciones disponibles, el programa se reiniciara..." << endl;
+            cout << endl;
+            return main();
+    }
+    return 0;
+}
+
+int sumar(int  numerosuma1, int numerosuma2)
+{
+    int resultadosuma1 = numerosuma1 + numerosuma2;
+    return resultadosuma1;
+}
+
+int resta(int  numeroresta1, int numeroresta2)
+{
+    int resultadoresta1 = numeroresta1 - numeroresta2;
+    return resultadoresta1;
+}
+
+int multi(int  numeromulti1, int numeromulti2)
+{
+    int resultadomulti1 = numeromulti1 * numeromulti2;
+    return resultadomulti1;
+}
+
+int division(int  numerodivision1, int numerodivision2)
+{
+    int resultadodivision1 = numerodivision1 / numerodivision2;
+    return resultadodivision1;
+}
