@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int contarPalabras(string palabra1);
+
+int main()
+{
+    string palabra;
+    int resultadofinal;
+    cout << "Este programa cuentas cuantas palabras hay en una sentencia." << endl;
+    cout << "Ingrese la palabra: ";
+    getline(cin,palabra);
+    resultadofinal = contarPalabras(palabra);
+    cout << "La cantidad de palabras total es de: " << resultadofinal;
+    return 0;
+}
+
+int contarPalabras(string palabra1)
+{
+    int resultadofinal1 = 1;
+    int caracteres = 0;
+    caracteres = palabra1.size();
+    for(int i = 0; i < caracteres; i++)
+    {
+        if(palabra1.at(i) == ' ')
+        {
+            resultadofinal1 = resultadofinal1 + 1;   
+        }
+    }
+    return resultadofinal1;
+}
