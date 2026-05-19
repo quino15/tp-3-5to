@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+bool buscarPalabra(string cadena, string palabra) {
+    // Convertir ambas a minúsculas para búsqueda sin distinción de mayúsculas
+    transform(cadena.begin(), cadena.end(), cadena.begin(), ::tolower);
+    transform(palabra.begin(), palabra.end(), palabra.begin(), ::tolower);
+
+    return cadena.find(palabra) != string::npos;
+}
+
+void imprimirResultado(const string& cadena, const string& palabra, bool encontrada) {
+    cout << "Cadena: " << cadena << endl;
+    cout << "Palabra buscada: " << palabra << endl;
+    cout << "---" << endl;
+    if (encontrada) {
+        cout << "La palabra \"" << palabra << "\" SI se encuentra en la cadena." << endl;
+    } else {
+        cout << "La palabra \"" << palabra << "\" NO se encuentra en la cadena." << endl;
+    }
+}
+
+int main() {
+    string cadena, palabra;
+
+    cout << "Ingrese la cadena: ";
+    getline(cin, cadena);
+
+    cout << "Ingrese la palabra a buscar: ";
+    getline(cin, palabra);
+
+    bool encontrada = buscarPalabra(cadena, palabra);
+    imprimirResultado(cadena, palabra, encontrada);
+
+    return 0;
+}
