@@ -1,0 +1,47 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+string prepararCadena(string cadena) {
+    // Eliminar espacios y convertir a minúsculas
+    string resultado = "";
+    for (char c : cadena) {
+        if (c != ' ') {
+            resultado += tolower(c);
+        }
+    }
+    // Ordenar las letras alfabéticamente
+    sort(resultado.begin(), resultado.end());
+    return resultado;
+}
+
+bool esAnagrama(string cadena1, string cadena2) {
+    return prepararCadena(cadena1) == prepararCadena(cadena2);
+}
+
+void imprimirResultado(const string& c1, const string& c2, bool anagrama) {
+    cout << "Cadena 1: " << c1 << endl;
+    cout << "Cadena 2: " << c2 << endl;
+    cout << "---" << endl;
+    if (anagrama) {
+        cout << "\"" << c1 << "\" y \"" << c2 << "\" SÍ son anagramas." << endl;
+    } else {
+        cout << "\"" << c1 << "\" y \"" << c2 << "\" NO son anagramas." << endl;
+    }
+}
+
+int main() {
+    string cadena1, cadena2;
+
+    cout << "Ingrese la primera cadena: ";
+    getline(cin, cadena1);
+
+    cout << "Ingrese la segunda cadena: ";
+    getline(cin, cadena2);
+
+    bool resultado = esAnagrama(cadena1, cadena2);
+    imprimirResultado(cadena1, cadena2, resultado);
+
+    return 0;
+}
